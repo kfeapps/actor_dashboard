@@ -99,7 +99,7 @@ with st.sidebar:
     st.subheader("Feineinstellungen")
     sel_months_back = st.number_input(
         "Vergleichszeitraum in Monaten",
-        value=12,
+        value=24,
         min_value=1
     )
 
@@ -107,7 +107,7 @@ sel_menu = option_menu(None,
                        ["Neue Infos", "Tabelle", "Verteilungen", "Zeitreihe", "Karten"],
                        icons=['clipboard-data', 'table', 'pie-chart', 'graph-up', 'map'],
                        menu_icon="cast",
-                       default_index=4,
+                       default_index=0,
                        orientation="horizontal")
 
 st.header("Faktenübersicht Akteure")
