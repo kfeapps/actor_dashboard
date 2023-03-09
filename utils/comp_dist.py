@@ -54,7 +54,8 @@ def create_comp_dist(actor, months):
             sel_dist_viz = st.radio(
                 "**Diagrammoptionen**",
                 options=tuple(options_dist_viz.keys()),
-                format_func=lambda x: options_dist_viz[x]
+                format_func=lambda x: options_dist_viz[x],
+                index=1
             )
 
     if sel_dist_timeframe == "all_times":

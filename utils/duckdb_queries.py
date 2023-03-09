@@ -12,6 +12,7 @@ def get_first_events(sel_actor):
     return duckdb.execute(query).df()
 
 
+@st.cache_data
 def get_actor_list_with_filters(actor_types, countries, timeframe):
     if actor_types == "incl_main_actors":
         actor_type_codes = (1, 2)
@@ -162,6 +163,7 @@ def load_actor_cats_data_n_months(sel_actor, months):
     return duckdb.execute(query).df()
 
 
+@st.cache_data
 def load_actor_maps(sel_actor):
     query = f""" SELECT EVENT_DATE, EVENT_TYPE, SUB_EVENT_TYPE, ACTOR, ACTOR_OPP, INTER_ACTOR_OPP, LATITUDE, LONGITUDE, GID_0, GID_1, FATALITIES
                  FROM 'data/acled_actor_db.parquet'
@@ -170,6 +172,7 @@ def load_actor_maps(sel_actor):
     return duckdb.execute(query).df()
 
 
+@st.cache_data
 def load_actor_maps_data_n_months(sel_actor, months):
     query = f""" SELECT EVENT_DATE, EVENT_TYPE, SUB_EVENT_TYPE, ACTOR, ACTOR_OPP, INTER_ACTOR_OPP, LATITUDE, LONGITUDE, GID_0, GID_1, FATALITIES
                  FROM 'data/acled_actor_db.parquet'

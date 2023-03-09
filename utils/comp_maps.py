@@ -68,7 +68,7 @@ def create_comp_maps(actor, months):
                 "**Aggregationsperioden**",
                 options = list(dict_maps_agg_period.keys()),
                 format_func=lambda x: dict_maps_agg_period[x],
-                index=0,
+                index=2,
                 key="agg_maps"
             )
     if sel_maps_timeframe == "all_times":
@@ -91,8 +91,9 @@ def create_comp_maps(actor, months):
                             size = "FATALITIES",
                             height=600,
                             width=1000,
+                            size_max= int(df_ts["FATALITIES"].max()/4),
                             animation_frame=sel_maps_agg_period,
-                            zoom=3)
+                            zoom=4)
     fig.update_layout(mapbox_style="carto-positron")
     st.plotly_chart(fig, use_container_width=True)
 
